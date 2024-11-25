@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('preto1.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.cartao {
+    perspective: 1000px; /* Adiciona perspectiva para o efeito 3D */
+    margin: 1rem;
+    height: 250px;
+    width: calc(33% - 2rem); /* Tamanho adaptável */
+}
+
+.cartao__conteudo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Mantém a perspectiva 3D */
+    transform: rotateY(0deg); /* Estado inicial */
+    transition: transform 0.6s ease-in-out; /* Animação suave */
+    border-radius: 10px;
+}
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg); /* Gira o cartão */
+}
+
+.cartao_conteudo_pergunta,
+.cartao_conteudo_resposta {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta o lado oposto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.cartao_conteudo_pergunta {
+    background-color: rgba(151, 148, 151, 0.8); /* Fundo translúcido para a pergunta */
+}
+
+.cartao_conteudo_resposta {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo translúcido para a resposta */
+    transform: rotateY(180deg); /* Inicia invertido */
+    color: white;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0;
+}
